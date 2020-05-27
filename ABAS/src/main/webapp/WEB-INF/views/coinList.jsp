@@ -7,8 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-
 	${list}
+	${list.data}
+	${list.data.opening_price}
 	
 </body>
 </html>

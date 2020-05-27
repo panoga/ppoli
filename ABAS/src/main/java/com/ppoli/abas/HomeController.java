@@ -3,7 +3,9 @@ package com.ppoli.abas;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Map;
 
+import org.apache.commons.codec.binary.StringUtils;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -16,7 +18,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.google.common.collect.Maps;
 import com.ppoli.abas.bithumb.PublicApi;
+import com.ppoli.abas.dto.List;
 
 
 /**
@@ -60,17 +64,27 @@ public class HomeController {
 		System.out.println("coinlist  : " + coinlist);
 		
 		JSONParser jparser = new JSONParser();
+		
+		Map<String, Object> map = Maps.newHashMap();
+		
 		try {
 			JSONObject jobject = (JSONObject) jparser.parse(coinlist);
 			
-			System.out.println(jobject.get("data"));
+			System.out.println("jobject : " + jobject.get("data"));
+			
+			List list = new List();
+			list.setData(jobject.get("data"));
+			
+			map.put("data", jobject.get("data"));
 			
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			System.out.println("ParseException");
 		}
 		
-		mav.addObject("list", coinlist);
+//		mav.addObject("data", jobject.get("data"));
+		mav.addObject("list", map);
 		
 		return mav;
 		
