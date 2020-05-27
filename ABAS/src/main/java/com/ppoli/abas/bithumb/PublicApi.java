@@ -2,6 +2,9 @@ package com.ppoli.abas.bithumb;
 
 import java.util.HashMap;
 
+import org.springframework.stereotype.Repository;
+
+@Repository
 public class PublicApi {
 
 	final static Api_Client api = new Api_Client("api connect key","api secret key");
@@ -21,14 +24,16 @@ public class PublicApi {
 		rgParams.put("order_currency", order_currency);	//"BTC"
 		rgParams.put("payment_currency", payment_currency);	//"KRW"	
 	
+		String result = "";
+		
 		try {
-		    String result = api.callApi("/public/ticker", rgParams);
+		    result = api.callApi("/public/ticker", rgParams);
 		    System.out.println(result);
 		} catch (Exception e) {
 		    e.printStackTrace();
 		}
 		
-		return "";
+		return result;
 	}
 	
 }
