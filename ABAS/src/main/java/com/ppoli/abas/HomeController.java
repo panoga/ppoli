@@ -54,14 +54,10 @@ public class HomeController {
 	@RequestMapping(value = "/allselect", method = RequestMethod.GET)
 	public ModelAndView coinselect(Locale locale, Model model) {
 	
-		
-		
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("coinList");
 		
-		String coinlist = papi.ticker("BTC", "KRW");
-		
-		System.out.println("coinlist  : " + coinlist);
+		String coinlist = papi.ticker("ALL", "KRW");
 		
 		JSONParser jparser = new JSONParser();
 		
