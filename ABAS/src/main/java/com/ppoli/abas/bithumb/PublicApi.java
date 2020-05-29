@@ -21,13 +21,10 @@ public class PublicApi {
 		
 		HashMap<String, String> rgParams = new HashMap<String, String>();
 		
-		rgParams.put("order_currency", order_currency);	//"BTC"
-		rgParams.put("payment_currency", payment_currency);	//"KRW"	
-	
 		String result = "";
 		
 		try {
-		    result = api.callApi("/public/ticker", rgParams);
+		    result = api.callApi("/public/ticker/"+order_currency+"_"+payment_currency, rgParams);
 		    System.out.println(result);
 		} catch (Exception e) {
 		    e.printStackTrace();

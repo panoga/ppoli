@@ -6,6 +6,7 @@ import java.util.Locale;
 import java.util.Map;
 
 import org.apache.commons.codec.binary.StringUtils;
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -64,20 +65,21 @@ public class HomeController {
 		Map<String, Object> map = Maps.newHashMap();
 		
 		try {
-			JSONObject jobject = (JSONObject) jparser.parse(coinlist);
 			
-			System.out.println("jobject : " + jobject.get("data"));
+//			JSONArray ja = new JSONArray();
+			
+			JSONObject jobject = (JSONObject) jparser.parse(coinlist);
 			
 			List list = new List();
 			list.setData(jobject.get("data"));
-			
+			System.out.println("jobject.get(\"data\") : " + jobject.get("data"));
 			map.put("data", jobject.get("data"));
 			
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			System.out.println("ParseException");
-		}
+		} 
 		
 //		mav.addObject("data", jobject.get("data"));
 		mav.addObject("list", map);
