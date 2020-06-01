@@ -63,10 +63,12 @@ public class HomeController {
 		JSONParser jparser = new JSONParser();
 		
 		Map<String, Object> map = Maps.newHashMap();
+//		List list 
+		
 		
 		try {
 			
-//			JSONArray ja = new JSONArray();
+			JSONArray ja = new JSONArray();
 			
 			JSONObject jobject = (JSONObject) jparser.parse(coinlist);
 			
