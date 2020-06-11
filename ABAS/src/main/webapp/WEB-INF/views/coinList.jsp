@@ -30,7 +30,8 @@ var table = new Tabulator("#example-table", {
  	columns:[ //Define Table Columns
 	 	{title:"코인", field:"coin", width:150},
 	 	{title:"가격", field:"opening_price", width:150},
-	 	{title:"거래량", field:"units_traded", align:"left", formatter:"progress"}
+	 	{title:"거래량", field:"units_traded", width:150}
+	 	//{title:"거래량", field:"units_traded", align:"left", formatter:"progress"}
 	 	//{title:"Favourite Color", field:"col"},
 	 	//{title:"Date Of Birth", field:"dob", sorter:"date", align:"center"},
  	],
@@ -45,8 +46,6 @@ var table = new Tabulator("#example-table", {
 
 //define some sample data
 var tabledata = [
-
-	
 	//{id:1, coin:"BTC", price:${list.data.XEM}},
 	//{id:1, name:"Oli Bob", age:"12", col:"red", dob:""},
 	//{id:2, name:"Mary May", age:"1", col:"blue", dob:"14/05/1982"},
